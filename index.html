@@ -47,8 +47,8 @@
           </svg>
         </div>
         <div>
-          <span class="brand-title">Mes petites courses</span>
-          <span class="brand-subtitle">Planificateur Nutrition &amp; Courses</span>
+          <h1 class="brand-title">Mes petites courses</h1>
+          <p class="brand-subtitle"><span id="total-dishes-count">62</span> plats pour votre menu équilibré</p>
         </div>
       </div>
 
@@ -60,112 +60,174 @@
           </svg>
           <span>Installer l'app</span>
         </button>
-        <button type="button" id="btn-auto-suggest" class="btn btn-secondary">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-sm" aria-hidden="true">
-            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
-          </svg>
-          <span>Suggestion équilibrée</span>
-        </button>
       </nav>
     </div>
   </header>
 
-  <main class="main-content container no-print">
-    <!-- Section Hero & Configuration du nombre de plats -->
-    <section class="hero-planner" aria-labelledby="main-heading">
-      <div class="hero-copy">
-        <h1 id="main-heading">Composez votre menu de la semaine avec équilibre</h1>
+  <main class="main-content no-print">
+    <!-- Bandeau de planification pleine largeur -->
+    <section class="planner-bar-section" aria-label="Configuration du menu">
+      <div class="planner-bar-inner container">
+        <h2 class="section-bar-title">Mes choix</h2>
+        <div class="planner-meals-row">
+          <div class="custom-days-stepper" role="group" aria-label="Ajuster le nombre de plats">
+            <button type="button" id="btn-days-minus" class="stepper-btn" aria-label="Diminuer le nombre de plats">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="icon-xs" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <span id="custom-days-value" class="stepper-value" aria-live="polite">4 plats</span>
+            <button type="button" id="btn-days-plus" class="stepper-btn" aria-label="Augmenter le nombre de plats">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="icon-xs" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+          </div>
 
-        <!-- Sélecteur du nombre de plats -->
-        <div class="days-selector-card">
-          <span class="days-label" id="days-group-label">Nombre de plats pour la semaine :</span>
-
-          <div class="days-controls" role="group" aria-labelledby="days-group-label">
-            <div class="custom-days-stepper">
-              <button type="button" id="btn-days-minus" class="stepper-btn" aria-label="Diminuer le nombre de plats">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="icon-xs" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/></svg>
-              </button>
-              <span id="custom-days-value" class="stepper-value" aria-live="polite">4 plats</span>
-              <button type="button" id="btn-days-plus" class="stepper-btn" aria-label="Augmenter le nombre de plats">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="icon-xs" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-              </button>
-            </div>
+          <div class="custom-days-stepper" role="group" aria-label="Nombre de personnes">
+            <button type="button" id="btn-people-minus" class="stepper-btn" aria-label="Diminuer le nombre de personnes">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="icon-xs" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <span id="custom-people-value" class="stepper-value" aria-live="polite">2 pers.</span>
+            <button type="button" id="btn-people-plus" class="stepper-btn" aria-label="Augmenter le nombre de personnes">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="icon-xs" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
           </div>
         </div>
-      </div>
 
-      <!-- Carte de recommandation nutritionnelle par catégorie -->
-      <div class="advisor-panel" aria-live="polite">
-        <div class="advisor-header">
-          <div>
-            <h2 class="advisor-title">Recommandation d'équilibre</h2>
-            <p class="advisor-subtitle" id="advisor-summary-text">
-              Pour 4 repas : max 1 plat Gourmand (D), max 1 plat Modéré (C), max 2 plats Bon Compromis (B), et les plats Équilibre (A) en illimité.
-            </p>
+        <div class="planner-actions-row">
+          <button
+            type="button"
+            id="btn-quotas-details"
+            class="btn btn-outline btn-quotas-trigger"
+            aria-expanded="false"
+            aria-controls="quotas-details-panel"
+          >
+            <span id="quotas-trigger-label">Quotas : Oui</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="icon-xs quotas-chevron" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+
+          <button type="button" id="btn-auto-suggest" class="btn btn-secondary planner-suggest-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-sm" aria-hidden="true">
+              <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+            </svg>
+            <span>Suggestion équilibrée</span>
+          </button>
+        </div>
+
+        <div id="quotas-details-panel" class="quotas-details-panel" hidden>
+          <div class="quotas-details-header">
+            <span class="quotas-details-title">Règles d'équilibre pour <strong id="quotas-details-meals">4 plats</strong></span>
+            <label class="strict-toggle" for="strict-mode-checkbox">
+              <input type="checkbox" id="strict-mode-checkbox" checked>
+              <span>Respecter les quotas</span>
+            </label>
           </div>
-          <label class="strict-toggle" for="strict-mode-checkbox">
-            <input type="checkbox" id="strict-mode-checkbox" checked>
-            <span>Respecter les quotas</span>
-          </label>
+          <div id="quotas-details-grid" class="quotas-details-grid">
+            <!-- Généré par planner-bar.js -->
+          </div>
         </div>
 
-        <div class="quota-grid" id="quota-cards-container">
-          <!-- Généré dynamiquement par app.js -->
-        </div>
+        <p id="quota-alert-banner" class="quota-alert-banner" role="status" aria-live="polite" hidden></p>
       </div>
     </section>
 
-    <!-- Catalogue pleine largeur des plats classés par catégorie -->
-    <section class="catalog-section" aria-labelledby="catalog-heading">
-      <div class="catalog-toolbar">
-        <div class="catalog-title-group">
-          <h2 id="catalog-heading">Plats classés par Note Nutritionnelle (<span id="total-dishes-count">29</span>)</h2>
-          <p class="catalog-hint">Cliquez sur un plat pour l'ajouter ou le retirer de votre semaine.</p>
+    <!-- Catalogue des plats classés par catégorie -->
+    <section class="catalog-section" aria-label="Catalogue des plats">
+      <div class="catalog-search-heading">
+        <div class="container">
+          <h2 class="section-bar-title">Recherche</h2>
         </div>
+      </div>
+      <div class="catalog-toolbar">
+        <div class="catalog-toolbar-inner container">
+          <search class="catalog-filters">
+            <div class="search-input-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sm search-icon" aria-hidden="true">
+                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+              </svg>
+              <label for="dish-search" class="sr-only">Rechercher un plat ou un ingrédient</label>
+              <input type="search" id="dish-search" name="q" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Rechercher un plat ou un ingrédient">
+            </div>
+            <div class="category-dropdown" id="category-filter-dropdown">
+              <button
+                type="button"
+                id="category-filter-trigger"
+                class="category-dropdown-trigger"
+                aria-haspopup="listbox"
+                aria-expanded="false"
+                aria-controls="category-filter-menu"
+                aria-label="Filtrer par catégorie nutritionnelle"
+              >
+                <span class="category-trigger-indicator" id="category-trigger-indicator" aria-hidden="true">
+                  <span class="mini-dots-grid">
+                    <span class="dot-a"></span><span class="dot-b"></span>
+                    <span class="dot-c"></span><span class="dot-d"></span>
+                  </span>
+                </span>
+                <span class="category-trigger-label" id="category-trigger-label">Catégories</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="icon-xs category-dropdown-chevron" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
 
-        <search class="catalog-filters">
-          <div class="search-input-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sm search-icon" aria-hidden="true">
-              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
-            </svg>
-            <label for="dish-search" class="sr-only">Rechercher un plat ou un ingrédient</label>
-            <input type="search" id="dish-search" name="q" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Filtrer par plat ou ingrédient (ex: lentilles, raclette, butternut, bœuf)...">
-          </div>
-          <div class="category-filter-pills" role="group" aria-label="Filtrer par catégorie nutritionnelle">
-            <button type="button" class="filter-pill active" data-filter="ALL" id="filter-pill-all">Toutes les notes (29)</button>
-            <button type="button" class="filter-pill filter-pill-a" data-filter="A">Cat. A • Illimité</button>
-            <button type="button" class="filter-pill filter-pill-b" data-filter="B">Cat. B • Bon compromis</button>
-            <button type="button" class="filter-pill filter-pill-c" data-filter="C">Cat. C • Modéré</button>
-            <button type="button" class="filter-pill filter-pill-d" data-filter="D">Cat. D • Gourmand</button>
-          </div>
-        </search>
+              <div id="category-filter-menu" class="category-dropdown-menu" role="listbox" aria-label="Catégories nutritionnelles" hidden>
+                <button type="button" class="category-dropdown-option is-selected" role="option" aria-selected="true" data-filter="ALL">
+                  <span class="mini-dots-grid" aria-hidden="true">
+                    <span class="dot-a"></span><span class="dot-b"></span>
+                    <span class="dot-c"></span><span class="dot-d"></span>
+                  </span>
+                  <span class="category-option-text">Toutes les catégories</span>
+                </button>
+                <button type="button" class="category-dropdown-option" role="option" aria-selected="false" data-filter="A">
+                  <span class="cat-badge-xs grade-a" aria-hidden="true">A</span>
+                  <span class="category-option-text">Équilibre &amp; Vitalité</span>
+                </button>
+                <button type="button" class="category-dropdown-option" role="option" aria-selected="false" data-filter="B">
+                  <span class="cat-badge-xs grade-b" aria-hidden="true">B</span>
+                  <span class="category-option-text">Plats Gourmands</span>
+                </button>
+                <button type="button" class="category-dropdown-option" role="option" aria-selected="false" data-filter="C">
+                  <span class="cat-badge-xs grade-c" aria-hidden="true">C</span>
+                  <span class="category-option-text">Plaisirs Riches</span>
+                </button>
+                <button type="button" class="category-dropdown-option" role="option" aria-selected="false" data-filter="D">
+                  <span class="cat-badge-xs grade-d" aria-hidden="true">D</span>
+                  <span class="category-option-text">Occasions</span>
+                </button>
+              </div>
+            </div>
+          </search>
+        </div>
       </div>
 
       <!-- Conteneur des catégories de plats -->
       <div id="dishes-categories-container" class="categories-stack">
-        <!-- Généré par app.js -->
+        <!-- Généré par catalog.js -->
       </div>
     </section>
   </main>
 
-  <!-- Barre d'action flottante en bas d'écran pour suivre la sélection et ouvrir la liste -->
+  <!-- Barre d'action fixe 100% pleine largeur en bas d'écran -->
   <div class="bottom-checkout-bar no-print" role="region" aria-label="Suivi et validation du menu">
     <div class="bottom-checkout-inner container">
       <div class="bottom-checkout-info">
         <span class="bottom-checkout-count" id="bottom-bar-count">4 / 4 plats</span>
         <div class="bottom-quota-pills" id="bottom-bar-quotas" aria-label="Suivi des choix par catégorie">
-          <!-- Généré dynamiquement par app.js -->
+          <!-- Généré dynamiquement par bottom-bar.js -->
         </div>
       </div>
       <div class="bottom-checkout-actions">
-        <button type="button" id="btn-clear-selection" class="btn btn-outline">
-          Tout vider
+        <button type="button" id="btn-clear-selection" class="btn btn-outline btn-icon-only" aria-label="Tout vider" title="Tout vider">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-sm" aria-hidden="true">
+            <path d="M3 6h18"/>
+            <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+            <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
+          </svg>
         </button>
         <button type="button" id="btn-finish-menu" command="show-modal" commandfor="shopping-list-dialog" class="btn btn-cta">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="icon-sm" aria-hidden="true">
             <polyline points="20 6 9 17 4 12"/>
           </svg>
-          <span>Terminer &amp; Voir la liste de courses</span>
+          <span>Voir la liste</span>
         </button>
       </div>
     </div>
@@ -176,18 +238,21 @@
     <div class="dialog-content shopping-dialog-content">
       <!-- En-tête de la popup (masqué à l'impression au profit de print-header) -->
       <div class="dialog-header no-print">
-        <div>
-          <span class="dialog-eyebrow">Menu validé &amp; Panier</span>
-          <h2 id="shopping-dialog-title">Votre Liste de Courses de la Semaine</h2>
+        <div class="dialog-header-top">
+          <div class="dialog-header-main">
+            <h2 id="shopping-dialog-title">Résumé de votre menu</h2>
+          </div>
+          <form method="dialog">
+            <button value="cancel" class="btn-icon-close" aria-label="Fermer la liste de courses">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sm" aria-hidden="true">
+                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </button>
+          </form>
+        </div>
+        <div class="shopping-subtitle-row">
           <p class="shopping-subtitle" id="shopping-status-subtitle"></p>
         </div>
-        <form method="dialog">
-          <button value="cancel" class="btn-icon-close" aria-label="Fermer la liste de courses">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sm" aria-hidden="true">
-              <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-            </svg>
-          </button>
-        </form>
       </div>
 
       <!-- En-tête visible uniquement à l'impression PDF -->
@@ -196,16 +261,17 @@
         <p id="print-date-summary"></p>
       </div>
 
-      <!-- Barre d'actions : Impression + bouton discret Export IA à côté -->
+      <!-- Barre d'actions : Impression -->
       <div class="dialog-actions-bar no-print">
+        <h3 class="dialog-actions-label">Impression</h3>
         <div class="dialog-print-buttons">
-          <button type="button" id="btn-print-shopping" class="btn btn-primary" autofocus>
+          <button type="button" id="btn-print-shopping" class="btn btn-outline" autofocus>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sm" aria-hidden="true">
               <polyline points="6 9 6 2 18 2 18 9"/>
               <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
               <rect width="12" height="8" x="6" y="14"/>
             </svg>
-            <span>Imprimer la Liste de Courses</span>
+            <span>Liste de Courses</span>
           </button>
 
           <button type="button" id="btn-print-menu" class="btn btn-outline">
@@ -214,14 +280,7 @@
               <path d="M7 2v20"/>
               <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/>
             </svg>
-            <span>Imprimer le Menu</span>
-          </button>
-
-          <button type="button" id="btn-copy-ai-prompt" class="btn btn-ai-discreet" title="Copier les instructions d'auto-remplissage Drive par IA">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sm" aria-hidden="true">
-              <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
-            </svg>
-            <span id="copy-prompt-label">Export IA</span>
+            <span>Menu</span>
           </button>
         </div>
       </div>
@@ -229,7 +288,7 @@
       <!-- Corps de la popup : Plats retenus (par catégorie, sans ingrédients) + Ingrédients par rayon -->
       <div class="popup-shopping-grid">
         <!-- Liste des plats retenus -->
-        <div class="selected-meals-box" id="printable-menu-section">
+        <div class="shopping-column" id="printable-menu-section">
           <div class="section-mini-header">
             <div>
               <h3>
@@ -240,36 +299,37 @@
             </div>
             <span id="selected-meals-count" class="count-tag">0 plat</span>
           </div>
-          <div id="selected-meals-list" class="selected-meals-list">
-            <!-- Généré par app.js -->
+          <div class="selected-meals-box">
+            <div id="selected-meals-list" class="selected-meals-list">
+              <!-- Généré par app.js -->
+            </div>
           </div>
         </div>
 
         <!-- Liste des ingrédients agrégés avec info-bulle sur PC -->
-        <div class="ingredients-box" id="printable-shopping-section">
+        <div class="shopping-column" id="printable-shopping-section">
           <div class="section-mini-header">
-            <div>
-              <h3>Ingrédients à ajouter au panier</h3>
-              <p class="tooltip-instruction no-print">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-xs" aria-hidden="true">
-                  <circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>
-                </svg>
-                <span>Touchez ou survolez le badge <strong>Plats</strong> pour voir le détail par recette.</span>
-              </p>
-            </div>
+            <h3>Ingrédients à ajouter au panier</h3>
             <span id="ingredients-total-count" class="count-tag">0 article</span>
           </div>
-
-          <div id="ingredients-list-container" class="ingredients-groups">
-            <!-- Généré par app.js -->
+          <div class="ingredients-box">
+            <div id="ingredients-list-container" class="ingredients-groups">
+              <!-- Généré par app.js -->
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="dialog-footer no-print">
-        <form method="dialog">
-          <button value="close" class="btn btn-outline">Continuer ma sélection</button>
-        </form>
+      <div class="dialog-ai-footer no-print">
+        <button type="button" id="btn-copy-ai-prompt" class="btn btn-ai-discreet">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sm" aria-hidden="true">
+            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+          </svg>
+          <span id="copy-prompt-label">Export pour IA</span>
+        </button>
+        <p class="dialog-ai-description">
+          Copie votre menu et la liste d'ingrédients au format structuré pour remplir automatiquement votre panier Drive avec une IA.
+        </p>
       </div>
 
       <!-- Conteneur des popovers "hint" placé à l'intérieur du <dialog> pour ne pas être rendu inerte par showModal() -->

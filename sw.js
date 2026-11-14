@@ -1,10 +1,16 @@
-const CACHE_NAME = "mes-petites-courses-v5";
+const CACHE_NAME = "mes-petites-courses-v6";
 const PRECACHE_ASSETS = [
   "./",
   "./index.html",
   "./css/styles.css",
   "./js/app.js",
+  "./js/constants.js",
   "./js/pdf-print.js",
+  "./js/components/planner-bar.js",
+  "./js/components/catalog.js",
+  "./js/components/bottom-bar.js",
+  "./js/components/shopping-dialog.js",
+  "./js/components/pwa-install.js",
   "./data/recipes.json",
   "./assets/favicon.svg",
   "./assets/manifest.webmanifest",
