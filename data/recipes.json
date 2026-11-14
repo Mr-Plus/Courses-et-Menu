@@ -53,6 +53,9 @@
           "aisle": "Épicerie Salée",
           "detail": "1 cube de bouillon de légumes"
         }
+      ],
+      "tags": [
+        "Végétarien"
       ]
     },
     {
@@ -633,6 +636,9 @@
           "aisle": "Crèmerie & Fromages",
           "detail": "150 g de gruyère râpé"
         }
+      ],
+      "tags": [
+        "Végétarien"
       ]
     },
     {
@@ -781,6 +787,9 @@
           "aisle": "Épicerie Salée",
           "detail": "2 c. à soupe d'huile d'olive"
         }
+      ],
+      "tags": [
+        "Végétarien"
       ]
     },
     {
@@ -1297,6 +1306,9 @@
           "aisle": "Crèmerie & Fromages",
           "detail": "100 g de gruyère râpé"
         }
+      ],
+      "tags": [
+        "Végétarien"
       ]
     },
     {
@@ -1517,7 +1529,7 @@
     },
     {
       "id": "cookeo-saute-porc-caramel",
-      "name": "Sauté de porc au caramel & riz (Cookeo)",
+      "name": "Sauté de porc au caramel & riz",
       "category": "B",
       "score": 71,
       "proteinLevel": "Très élevé (38g/pers.)",
@@ -1557,11 +1569,14 @@
           "aisle": "Épicerie Salée",
           "detail": "300 g de riz basmati"
         }
+      ],
+      "tags": [
+        "Cookeo"
       ]
     },
     {
       "id": "cookeo-poulet-basquaise-sans-poivron",
-      "name": "Poulet basquaise tomates & olives (Cookeo)",
+      "name": "Poulet basquaise tomates & olives",
       "category": "A",
       "score": 84,
       "proteinLevel": "Très élevé (41g/pers.)",
@@ -1609,11 +1624,14 @@
           "aisle": "Épicerie Salée",
           "detail": "300 g de riz d'accompagnement"
         }
+      ],
+      "tags": [
+        "Cookeo"
       ]
     },
     {
       "id": "cookeo-blanquette-dinde-express",
-      "name": "Blanquette de dinde aux carottes (Cookeo)",
+      "name": "Blanquette de dinde aux carottes",
       "category": "A",
       "score": 83,
       "proteinLevel": "Très élevé (42g/pers.)",
@@ -1669,11 +1687,14 @@
           "aisle": "Épicerie Salée",
           "detail": "250 g de riz"
         }
+      ],
+      "tags": [
+        "Cookeo"
       ]
     },
     {
       "id": "cookeo-risotto-petits-pois-jambon",
-      "name": "Risotto petits pois & jambon (Cookeo)",
+      "name": "Risotto petits pois & jambon",
       "category": "B",
       "score": 77,
       "proteinLevel": "Bon (25g/pers.)",
@@ -1729,11 +1750,14 @@
           "aisle": "Crèmerie & Fromages",
           "detail": "60 g de parmesan râpé"
         }
+      ],
+      "tags": [
+        "Cookeo"
       ]
     },
     {
       "id": "cookeo-one-pot-pasta-poulet-creme",
-      "name": "Pâtes one-pot poulet, crème & parmesan (Cookeo)",
+      "name": "Pâtes poulet, crème & parmesan",
       "category": "B",
       "score": 74,
       "proteinLevel": "Très élevé (39g/pers.)",
@@ -1781,11 +1805,15 @@
           "aisle": "Crèmerie & Fromages",
           "detail": "60 g de parmesan râpé"
         }
+      ],
+      "tags": [
+        "Cookeo",
+        "One-pot"
       ]
     },
     {
       "id": "cookeo-boeuf-bourguignon-carottes",
-      "name": "Bourguignon de bœuf aux carottes (Cookeo)",
+      "name": "Bourguignon de bœuf aux carottes",
       "category": "A",
       "score": 81,
       "proteinLevel": "Très élevé (41g/pers.)",
@@ -1833,11 +1861,14 @@
           "aisle": "Épicerie Salée",
           "detail": "1 cube de bouillon"
         }
+      ],
+      "tags": [
+        "Cookeo"
       ]
     },
     {
       "id": "cookeo-rougail-saucisses",
-      "name": "Rougail saucisses express & riz (Cookeo)",
+      "name": "Rougail saucisses express & riz",
       "category": "C",
       "score": 61,
       "proteinLevel": "Élevé (30g/pers.)",
@@ -1885,11 +1916,14 @@
           "aisle": "Épicerie Salée",
           "detail": "300 g de riz blanc"
         }
+      ],
+      "tags": [
+        "Cookeo"
       ]
     },
     {
       "id": "cookeo-poulet-moutarde-grenailles",
-      "name": "Poulet à la moutarde & grenailles (Cookeo)",
+      "name": "Poulet à la moutarde & grenailles",
       "category": "A",
       "score": 82,
       "proteinLevel": "Très élevé (41g/pers.)",
@@ -1937,11 +1971,14 @@
           "aisle": "Fruits & Légumes",
           "detail": "1 oignon"
         }
+      ],
+      "tags": [
+        "Cookeo"
       ]
     },
     {
       "id": "cookeo-chili-sin-carne",
-      "name": "Chili sin carne haricots & maïs (Cookeo)",
+      "name": "Chili sin carne haricots & maïs",
       "category": "A",
       "score": 89,
       "proteinLevel": "Bon (22g/pers.)",
@@ -1989,11 +2026,15 @@
           "aisle": "Épicerie Salée",
           "detail": "250 g de riz d'accompagnement"
         }
+      ],
+      "tags": [
+        "Cookeo",
+        "Végétarien"
       ]
     },
     {
       "id": "cookeo-curry-pois-chiches-epinards",
-      "name": "Curry pois chiches & épinards (Cookeo)",
+      "name": "Curry pois chiches & épinards",
       "category": "A",
       "score": 90,
       "proteinLevel": "Bon (23g/pers.)",
@@ -2041,11 +2082,15 @@
           "aisle": "Épicerie Salée",
           "detail": "250 g de riz basmati"
         }
+      ],
+      "tags": [
+        "Cookeo",
+        "Végétarien"
       ]
     },
     {
       "id": "cookeo-one-pot-bolognaise-lentilles-corail",
-      "name": "Pâtes one-pot bolognaise lentilles corail (Cookeo)",
+      "name": "Pâtes bolognaise lentilles corail",
       "category": "A",
       "score": 87,
       "proteinLevel": "Bon (25g/pers.)",
@@ -2101,11 +2146,16 @@
           "aisle": "Crèmerie & Fromages",
           "detail": "50 g de parmesan râpé"
         }
+      ],
+      "tags": [
+        "Cookeo",
+        "Végétarien",
+        "One-pot"
       ]
     },
     {
       "id": "cookeo-saute-dinde-curry-legumes",
-      "name": "Sauté de dinde au curry & carottes (Cookeo)",
+      "name": "Sauté de dinde au curry & carottes",
       "category": "A",
       "score": 85,
       "proteinLevel": "Très élevé (42g/pers.)",
@@ -2153,11 +2203,14 @@
           "aisle": "Épicerie Salée",
           "detail": "2 c. à soupe de pâte de curry doux"
         }
+      ],
+      "tags": [
+        "Cookeo"
       ]
     },
     {
       "id": "cookeo-one-pot-boulettes-boeuf-penne",
-      "name": "Boulettes de bœuf sauce tomate & penne (Cookeo)",
+      "name": "Boulettes de bœuf sauce tomate & penne",
       "category": "B",
       "score": 76,
       "proteinLevel": "Élevé (35g/pers.)",
@@ -2213,11 +2266,15 @@
           "aisle": "Crèmerie & Fromages",
           "detail": "50 g de parmesan râpé"
         }
+      ],
+      "tags": [
+        "Cookeo",
+        "One-pot"
       ]
     },
     {
       "id": "cookeo-colombo-poulet-express",
-      "name": "Colombo de poulet pommes de terre & carottes (Cookeo)",
+      "name": "Colombo de poulet pommes de terre & carottes",
       "category": "A",
       "score": 86,
       "proteinLevel": "Très élevé (41g/pers.)",
@@ -2273,11 +2330,14 @@
           "aisle": "Épicerie Salée",
           "detail": "1 cube de bouillon"
         }
+      ],
+      "tags": [
+        "Cookeo"
       ]
     },
     {
       "id": "cookeo-gnocchis-jambon-petits-pois",
-      "name": "Gnocchis jambon, petits pois & crème (Cookeo)",
+      "name": "Gnocchis jambon, petits pois & crème",
       "category": "B",
       "score": 70,
       "proteinLevel": "Bon (24g/pers.)",
@@ -2325,11 +2385,14 @@
           "aisle": "Crèmerie & Fromages",
           "detail": "60 g de parmesan râpé"
         }
+      ],
+      "tags": [
+        "Cookeo"
       ]
     },
     {
       "id": "cookeo-ebly-risotto-poulet-parmesan",
-      "name": "Ebly façon risotto au poulet & parmesan (Cookeo)",
+      "name": "Ebly façon risotto au poulet & parmesan",
       "category": "A",
       "score": 80,
       "proteinLevel": "Très élevé (41g/pers.)",
@@ -2385,11 +2448,14 @@
           "aisle": "Crèmerie & Fromages",
           "detail": "60 g de parmesan râpé"
         }
+      ],
+      "tags": [
+        "Cookeo"
       ]
     },
     {
       "id": "cookeo-tajine-poulet-olives-carottes",
-      "name": "Tajine de poulet aux olives & carottes (Cookeo)",
+      "name": "Tajine de poulet aux olives & carottes",
       "category": "A",
       "score": 85,
       "proteinLevel": "Très élevé (41g/pers.)",
@@ -2445,11 +2511,14 @@
           "aisle": "Épicerie Salée",
           "detail": "250 g de semoule de blé"
         }
+      ],
+      "tags": [
+        "Cookeo"
       ]
     },
     {
       "id": "cookeo-saucisses-toulouse-lentilles",
-      "name": "Saucisses de Toulouse aux lentilles (Cookeo)",
+      "name": "Saucisses de Toulouse aux lentilles",
       "category": "B",
       "score": 75,
       "proteinLevel": "Très élevé (39g/pers.)",
@@ -2497,11 +2566,14 @@
           "aisle": "Épicerie Salée",
           "detail": "1 cube de bouillon"
         }
+      ],
+      "tags": [
+        "Cookeo"
       ]
     },
     {
       "id": "cookeo-paella-poulet-chorizo",
-      "name": "Paella express poulet & chorizo (Cookeo)",
+      "name": "Paella express poulet & chorizo",
       "category": "B",
       "score": 74,
       "proteinLevel": "Très élevé (38g/pers.)",
@@ -2557,11 +2629,14 @@
           "aisle": "Épicerie Salée",
           "detail": "1 cube de bouillon"
         }
+      ],
+      "tags": [
+        "Cookeo"
       ]
     },
     {
       "id": "cookeo-poulet-creme-citron-tagliatelles",
-      "name": "Poulet crème, citron & tagliatelles one-pot (Cookeo)",
+      "name": "Poulet crème, citron & tagliatelles",
       "category": "B",
       "score": 75,
       "proteinLevel": "Très élevé (41g/pers.)",
@@ -2609,11 +2684,15 @@
           "aisle": "Épicerie Salée",
           "detail": "1 cube de bouillon"
         }
+      ],
+      "tags": [
+        "Cookeo",
+        "One-pot"
       ]
     },
     {
       "id": "cookeo-dahl-lentilles-corail-epinards",
-      "name": "Dahl de lentilles corail & épinards (Cookeo)",
+      "name": "Dahl de lentilles corail & épinards",
       "category": "A",
       "score": 91,
       "proteinLevel": "Bon (24g/pers.)",
@@ -2669,11 +2748,15 @@
           "aisle": "Épicerie Salée",
           "detail": "250 g de riz basmati"
         }
+      ],
+      "tags": [
+        "Cookeo",
+        "Végétarien"
       ]
     },
     {
       "id": "cookeo-boeuf-carottes-pommes-de-terre",
-      "name": "Bœuf aux carottes & pommes de terre (Cookeo)",
+      "name": "Bœuf aux carottes & pommes de terre",
       "category": "A",
       "score": 85,
       "proteinLevel": "Très élevé (40g/pers.)",
@@ -2721,11 +2804,14 @@
           "aisle": "Épicerie Salée",
           "detail": "1 cube de bouillon"
         }
+      ],
+      "tags": [
+        "Cookeo"
       ]
     },
     {
       "id": "cookeo-one-pot-chorizo-tomates-mozzarella",
-      "name": "Pâtes one-pot chorizo, tomates & mozzarella (Cookeo)",
+      "name": "Pâtes chorizo, tomates & mozzarella",
       "category": "C",
       "score": 58,
       "proteinLevel": "Bon (25g/pers.)",
@@ -2773,11 +2859,15 @@
           "aisle": "Épicerie Salée",
           "detail": "1 cube de bouillon"
         }
+      ],
+      "tags": [
+        "Cookeo",
+        "One-pot"
       ]
     },
     {
       "id": "cookeo-saute-veau-tomate-olives",
-      "name": "Sauté de veau à la tomate & olives (Cookeo)",
+      "name": "Sauté de veau à la tomate & olives",
       "category": "A",
       "score": 83,
       "proteinLevel": "Très élevé (41g/pers.)",
@@ -2825,11 +2915,14 @@
           "aisle": "Épicerie Salée",
           "detail": "250 g de riz d'accompagnement"
         }
+      ],
+      "tags": [
+        "Cookeo"
       ]
     },
     {
       "id": "cookeo-poulet-miel-soja-riz",
-      "name": "Poulet miel-soja & riz basmati (Cookeo)",
+      "name": "Poulet miel-soja & riz basmati",
       "category": "A",
       "score": 80,
       "proteinLevel": "Très élevé (42g/pers.)",
@@ -2885,11 +2978,14 @@
           "aisle": "Épicerie Salée",
           "detail": "1 cube de bouillon"
         }
+      ],
+      "tags": [
+        "Cookeo"
       ]
     },
     {
       "id": "cookeo-quinoa-poulet-petits-pois-mais",
-      "name": "Quinoa façon paella poulet, petits pois & maïs (Cookeo)",
+      "name": "Quinoa façon paella poulet, petits pois & maïs",
       "category": "A",
       "score": 88,
       "proteinLevel": "Très élevé (41g/pers.)",
@@ -2945,11 +3041,14 @@
           "aisle": "Épicerie Salée",
           "detail": "1 cube de bouillon"
         }
+      ],
+      "tags": [
+        "Cookeo"
       ]
     },
     {
       "id": "cookeo-pommes-de-terre-lardons-haricots-verts",
-      "name": "Pommes de terre, lardons & haricots verts (Cookeo)",
+      "name": "Pommes de terre, lardons & haricots verts",
       "category": "B",
       "score": 69,
       "proteinLevel": "Modéré (18g/pers.)",
@@ -2997,11 +3096,14 @@
           "aisle": "Épicerie Salée",
           "detail": "1 cube de bouillon"
         }
+      ],
+      "tags": [
+        "Cookeo"
       ]
     },
     {
       "id": "cookeo-poulet-tikka-masala",
-      "name": "Poulet tikka masala express & riz (Cookeo)",
+      "name": "Poulet tikka masala express & riz",
       "category": "A",
       "score": 81,
       "proteinLevel": "Très élevé (42g/pers.)",
@@ -3049,11 +3151,14 @@
           "aisle": "Épicerie Salée",
           "detail": "300 g de riz basmati"
         }
+      ],
+      "tags": [
+        "Cookeo"
       ]
     },
     {
       "id": "cookeo-dinde-paprika-coquillettes",
-      "name": "Émincé de dinde paprika & coquillettes one-pot (Cookeo)",
+      "name": "Émincé de dinde paprika & coquillettes",
       "category": "B",
       "score": 76,
       "proteinLevel": "Très élevé (41g/pers.)",
@@ -3101,11 +3206,15 @@
           "aisle": "Épicerie Salée",
           "detail": "1 cube de bouillon"
         }
+      ],
+      "tags": [
+        "Cookeo",
+        "One-pot"
       ]
     },
     {
       "id": "cookeo-jardiniere-legumes-saucisses",
-      "name": "Jardinière de légumes & saucisses fumées (Cookeo)",
+      "name": "Jardinière de légumes & saucisses fumées",
       "category": "B",
       "score": 72,
       "proteinLevel": "Bon (26g/pers.)",
@@ -3161,6 +3270,9 @@
           "aisle": "Épicerie Salée",
           "detail": "1 cube de bouillon"
         }
+      ],
+      "tags": [
+        "Cookeo"
       ]
     }
   ]

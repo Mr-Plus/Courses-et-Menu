@@ -190,6 +190,21 @@ export function renderShoppingPopupContent(dom, state, savePersistedState) {
               ${dishesOfCat
                 .map((dish) => {
                   const isPrepared = state.preparedDishIds.has(dish.id);
+                  const tags = Array.isArray(dish.tags) ? dish.tags : [];
+                  const tagsHtml = tags.length
+                    ? `<span class="selected-meal-tags">${tags
+                        .map((tag) => {
+                          const lowerTag = tag.toLowerCase();
+                          const tagClass =
+                            lowerTag === "végétarien"
+                              ? "dish-tag-veg"
+                              : lowerTag === "one-pot"
+                              ? "dish-tag-onepot"
+                              : "dish-appliance-tag";
+                          return `<span class="dish-tag ${tagClass}">${tag}</span>`;
+                        })
+                        .join("")}</span>`
+                    : "";
                   return `
                     <li class="selected-meal-item ${isPrepared ? "is-prepared" : ""}">
                       <div class="selected-meal-top">
@@ -202,6 +217,7 @@ export function renderShoppingPopupContent(dom, state, savePersistedState) {
                           >
                           <span class="quota-cat-tag ${meta.quotaTagClass} print-only">${dish.category}</span>
                           <span class="selected-meal-name">${dish.name}</span>
+                          ${tagsHtml}
                         </label>
                         <button
                           type="button"

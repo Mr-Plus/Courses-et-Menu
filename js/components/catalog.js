@@ -14,18 +14,22 @@ export function renderCatalog(dom, state, getSelectedCountsByCategory) {
   if (dom.totalDishesCount) dom.totalDishesCount.textContent = String(state.dishes.length);
 
   const categoriesOrder = ["A", "B", "C", "D"];
+  const isTagFilter = state.activeFilter.startsWith("TAG:");
+  const activeTag = isTagFilter ? state.activeFilter.slice(4) : null;
   let html = "";
 
   for (const catCode of categoriesOrder) {
-    if (state.activeFilter !== "ALL" && state.activeFilter !== catCode) continue;
+    if (!isTagFilter && state.activeFilter !== "ALL" && state.activeFilter !== catCode) continue;
 
     const dishesInCat = state.dishes.filter((dish) => {
       if (dish.category !== catCode) return false;
+      if (activeTag && (!Array.isArray(dish.tags) || !dish.tags.includes(activeTag))) return false;
       if (!query) return true;
       return (
         dish.name.toLowerCase().includes(query) ||
         dish.rawDescription.toLowerCase().includes(query) ||
-        (dish.nutritionHighlight && dish.nutritionHighlight.toLowerCase().includes(query))
+        (dish.nutritionHighlight && dish.nutritionHighlight.toLowerCase().includes(query)) ||
+        (Array.isArray(dish.tags) && dish.tags.some((t) => t.toLowerCase().includes(query)))
       );
     });
 
@@ -64,6 +68,30 @@ export function renderCatalog(dom, state, getSelectedCountsByCategory) {
               .map((dish) => {
                 const isSelected = state.selectedDishIds.has(dish.id);
                 const isLocked = state.strictQuotas && !isSelected && isCategoryFull;
+                const tags = Array.isArray(dish.tags) ? dish.tags : [];
+                const tagsHtml = tags.length
+                  ? `<div class="dish-card-tags">${tags
+                      .map((tag) => {
+                        const lowerTag = tag.toLowerCase();
+                        const tagClass =
+                          lowerTag === "végétarien"
+                            ? "dish-tag-veg"
+                            : lowerTag === "one-pot"
+                            ? "dish-tag-onepot"
+                            : "dish-appliance-tag";
+                        return `<span class="dish-tag ${tagClass}">${tag}</span>`;
+                      })
+                      .join("")}</div>`
+                  : "";
+
+                const scoreColorClass =
+                  dish.score >= 80
+                    ? "grade-a"
+                    : dish.score >= 65
+                    ? "grade-b"
+                    : dish.score >= 50
+                    ? "grade-c"
+                    : "grade-d";
 
                 return `
                   <button
@@ -72,15 +100,17 @@ export function renderCatalog(dom, state, getSelectedCountsByCategory) {
                     data-dish-id="${dish.id}"
                     aria-pressed="${isSelected}"
                   >
-                    <div>
-                      <div class="dish-card-header">
+                    <div class="dish-card-body">
+                      <div class="dish-card-main">
                         <span class="dish-title">${dish.name}</span>
-                        <span class="dish-score-pill ${meta.quotaTagClass}">Note ${dish.score}/100</span>
+                        <div class="dish-macros">
+                          <span class="macro-chip">Protéines : ${dish.proteinLevel}</span>
+                          <span class="macro-chip">${dish.fatSugarNote}</span>
+                        </div>
                       </div>
-
-                      <div class="dish-macros">
-                        <span class="macro-chip">Protéines : ${dish.proteinLevel}</span>
-                        <span class="macro-chip">${dish.fatSugarNote}</span>
+                      <div class="dish-card-badges">
+                        <span class="dish-score-pill ${scoreColorClass}" aria-label="Note ${dish.score} sur 100">${dish.score}</span>
+                        ${tagsHtml}
                       </div>
                     </div>
                   </button>
@@ -127,7 +157,10 @@ export function initCatalogEvents(
         "is-filtered-a",
         "is-filtered-b",
         "is-filtered-c",
-        "is-filtered-d"
+        "is-filtered-d",
+        "is-filtered-tag-cookeo",
+        "is-filtered-tag-veg",
+        "is-filtered-tag-onepot"
       );
       if (filterVal === "ALL") {
         dom.categoryTriggerIndicator.innerHTML = `
@@ -136,6 +169,14 @@ export function initCatalogEvents(
             <span class="dot-c"></span><span class="dot-d"></span>
           </span>`;
         dom.categoryTriggerLabel.textContent = "Catégories";
+      } else if (filterVal.startsWith("TAG:")) {
+        const tagName = filterVal.slice(4);
+        const lowerTag = tagName.toLowerCase();
+        const dotKey =
+          lowerTag === "végétarien" ? "veg" : lowerTag === "one-pot" ? "onepot" : "cookeo";
+        dom.categoryFilterTrigger.classList.add(`is-filtered-tag-${dotKey}`);
+        dom.categoryTriggerIndicator.innerHTML = `<span class="tag-dot tag-dot-${dotKey}"></span>`;
+        dom.categoryTriggerLabel.textContent = tagName;
       } else {
         const lower = filterVal.toLowerCase();
         dom.categoryFilterTrigger.classList.add(`is-filtered-${lower}`);

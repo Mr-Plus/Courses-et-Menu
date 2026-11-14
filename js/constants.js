@@ -105,6 +105,7 @@ export function normalizeRecipe(raw) {
     fatSugarNote: raw.fatSugarNote || meta.defaultFatSugar,
     nutritionHighlight: raw.nutritionHighlight || name,
     rawDescription,
+    tags: Array.isArray(raw.tags) ? raw.tags.map(String) : [],
     ingredients
   };
 }
