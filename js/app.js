@@ -1,5 +1,5 @@
 /**
- * Point d'entrée de Mes petites courses :
+ * Point d'entrée de Courses & Menu :
  * Orchestre l'état global, le chargement de `data/recipes.json`, la persistance locale
  * et les composants de l'interface.
  */

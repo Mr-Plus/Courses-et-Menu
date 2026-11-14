@@ -380,6 +380,14 @@ export function generateMenuPdfBytes({ selectedDishes, preparedDishIds, totalIng
       ctx.fillStyle = "#222222";
       ctx.font = "400 23px 'Nunito Sans', -apple-system, sans-serif";
 
+      const dishTags = dish && Array.isArray(dish.tags) ? dish.tags : [];
+      const tagH = 28;
+      const tagGap = 8;
+      const tagsZoneTopY =
+        dishTags.length > 0
+          ? cardY + rowH - 18 - dishTags.length * tagH - (dishTags.length - 1) * tagGap
+          : cardY + rowH;
+
       if (dish) {
         for (const ing of dish.ingredients) {
           // Puce
@@ -387,9 +395,39 @@ export function generateMenuPdfBytes({ selectedDishes, preparedDishIds, totalIng
           ctx.arc(innerX + 12, innerY - 8, 4, 0, Math.PI * 2);
           ctx.fill();
 
-          const lines = wrapTextLines(ctx, ing.detail, expW - 32);
+          const maxIngW = innerY >= tagsZoneTopY ? expW - 170 : expW - 32;
+          const lines = wrapTextLines(ctx, ing.detail, maxIngW);
           ctx.fillText(lines[0], innerX + 28, innerY);
           innerY += 35;
+        }
+
+        // Tags empilés verticalement et alignés en bas à droite du cadre
+        if (dishTags.length > 0) {
+          ctx.font = "700 18px 'Nunito Sans', -apple-system, sans-serif";
+          let tagBottomY = cardY + rowH - 18;
+          for (let t = dishTags.length - 1; t >= 0; t--) {
+            const tag = dishTags[t];
+            const lowerTag = tag.toLowerCase();
+            const tagPalette =
+              lowerTag === "végétarien"
+                ? { bg: "#ECFDF5", border: "#A7F3D0", text: "#065F46" }
+                : lowerTag === "one-pot"
+                ? { bg: "#FFF7ED", border: "#FED7AA", text: "#9A3412" }
+                : { bg: "#EEF2FF", border: "#C7D2FE", text: "#3730A3" };
+            const textW = ctx.measureText(tag).width;
+            const tagW = textW + 24;
+            const tagX = cardX + colW - 22 - tagW;
+            const tagY = tagBottomY - tagH;
+            roundRectPath(ctx, tagX, tagY, tagW, tagH, 7);
+            ctx.fillStyle = tagPalette.bg;
+            ctx.fill();
+            ctx.strokeStyle = tagPalette.border;
+            ctx.lineWidth = 1.4;
+            ctx.stroke();
+            ctx.fillStyle = tagPalette.text;
+            ctx.fillText(tag, tagX + 12, tagY + 20);
+            tagBottomY = tagY - tagGap;
+          }
         }
       } else {
         for (let k = 0; k < 4; k++) {

@@ -1,7 +1,7 @@
 {
   "id": "/",
-  "name": "Mes petites courses — Planificateur Nutrition & Courses",
-  "short_name": "Petites Courses",
+  "name": "Courses & Menu",
+  "short_name": "Courses & Menu",
   "description": "Composez votre menu équilibré de la semaine et générez votre liste de courses par rayon.",
   "lang": "fr",
   "dir": "ltr",

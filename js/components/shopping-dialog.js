@@ -190,21 +190,6 @@ export function renderShoppingPopupContent(dom, state, savePersistedState) {
               ${dishesOfCat
                 .map((dish) => {
                   const isPrepared = state.preparedDishIds.has(dish.id);
-                  const tags = Array.isArray(dish.tags) ? dish.tags : [];
-                  const tagsHtml = tags.length
-                    ? `<span class="selected-meal-tags">${tags
-                        .map((tag) => {
-                          const lowerTag = tag.toLowerCase();
-                          const tagClass =
-                            lowerTag === "végétarien"
-                              ? "dish-tag-veg"
-                              : lowerTag === "one-pot"
-                              ? "dish-tag-onepot"
-                              : "dish-appliance-tag";
-                          return `<span class="dish-tag ${tagClass}">${tag}</span>`;
-                        })
-                        .join("")}</span>`
-                    : "";
                   return `
                     <li class="selected-meal-item ${isPrepared ? "is-prepared" : ""}">
                       <div class="selected-meal-top">
@@ -217,7 +202,6 @@ export function renderShoppingPopupContent(dom, state, savePersistedState) {
                           >
                           <span class="quota-cat-tag ${meta.quotaTagClass} print-only">${dish.category}</span>
                           <span class="selected-meal-name">${dish.name}</span>
-                          ${tagsHtml}
                         </label>
                         <button
                           type="button"
@@ -411,7 +395,7 @@ export function initShoppingDialogEvents(dom, state, { onStateChange, onPopupCon
   dom.btnCopyAiPrompt.addEventListener("click", async () => {
     const payload = buildAiShoppingJson(state);
     const promptText = [
-      "Voici ma liste de courses générée depuis Mes petites courses.",
+      "Voici ma liste de courses générée depuis Courses & Menu.",
       "Parcours chaque article de `shoppingList` et ajoute-le automatiquement à mon panier de courses en ligne avec la quantité indiquée dans `formattedTotalQuantity` :",
       "",
       JSON.stringify(payload, null, 2)
@@ -455,9 +439,10 @@ export function initShoppingDialogEvents(dom, state, { onStateChange, onPopupCon
 
     if (!("anchorName" in document.documentElement.style)) {
       const rect = trigger.getBoundingClientRect();
+      const popoverW = Math.min(320, window.innerWidth - 32);
       popoverEl.style.position = "fixed";
       popoverEl.style.top = `${Math.min(window.innerHeight - 140, rect.bottom + 6)}px`;
-      popoverEl.style.left = `${Math.max(12, Math.min(window.innerWidth - 292, rect.left - 120))}px`;
+      popoverEl.style.left = `${Math.max(16, Math.min(window.innerWidth - popoverW - 16, rect.right - popoverW))}px`;
     }
 
     if (typeof popoverEl.showPopover === "function") {

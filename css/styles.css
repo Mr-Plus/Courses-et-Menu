@@ -1621,16 +1621,18 @@ p {
 .ingredient-tooltip-popover {
   position-anchor: var(--anchor-id);
   top: anchor(bottom);
-  left: anchor(left);
+  left: auto;
+  right: anchor(right);
   margin: 6px 0 0 0;
-  padding: 0.7rem 0.85rem;
+  padding: 0.75rem 0.9rem;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-strong);
   background-color: #1E1311;
   color: #FFFFFF;
   box-shadow: var(--shadow-lg);
-  max-width: 280px;
-  font-size: 0.8rem;
+  width: min(320px, calc(100vw - 2rem));
+  max-width: calc(100vw - 2rem);
+  font-size: 0.82rem;
   z-index: 100;
 }
 
